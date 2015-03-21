@@ -44,7 +44,9 @@ function! s:focus_gained()
   endif
 endfunction
 
-au FocusGained * call s:focus_gained()
+if exists('$TMUX')
+  au FocusGained * call s:focus_gained()
+endif
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
