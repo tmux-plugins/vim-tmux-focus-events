@@ -57,6 +57,14 @@ Tested and working on:
   - Terminal.app
   - iTerm2
 
+- Linux
+  - GNOME Terminal
+  - Terminator
+  - XTerm
+  - Konsole
+
+Not working with NeoVim.
+
 ### Usage
 
 Once installed, the plugin should "just work".
