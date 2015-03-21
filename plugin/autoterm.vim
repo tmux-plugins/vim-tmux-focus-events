@@ -1,3 +1,7 @@
+if !exists('$TMUX') || has('gui_running')
+  finish
+endif
+
 if exists('g:loaded_autoterm') && g:loaded_autoterm
   finish
 endif
