@@ -2,10 +2,10 @@ if !exists('$TMUX') || has('gui_running')
   finish
 endif
 
-if exists('g:loaded_autoterm') && g:loaded_autoterm
+if exists('g:loaded_tmux_focus_events') && g:loaded_tmux_focus_events
   finish
 endif
-let g:loaded_autoterm = 1
+let g:loaded_tmux_focus_events = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
@@ -64,7 +64,7 @@ endfunction
 call <SID>restore_focus_events()
 
 " restore vim 'autoread' functionality
-au FocusGained * call autoterm#focus_gained()
+au FocusGained * call tmux_focus_events#focus_gained()
 
 let &cpo = s:save_cpo
 unlet s:save_cpo

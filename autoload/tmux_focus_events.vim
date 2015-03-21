@@ -1,7 +1,7 @@
-if exists('g:autoloaded_autoterm') && g:autoloaded_autoterm
+if exists('g:autoloaded_tmux_focus_events') && g:autoloaded_tmux_focus_events
   finish
 endif
-let g:autoloaded_autoterm = 1
+let g:autoloaded_tmux_focus_events = 1
 
 function! s:cursor_in_cmd_line()
   return !empty(getcmdtype())
@@ -18,7 +18,7 @@ function! s:delayed_checktime()
   silent checktime
 endfunction
 
-function! autoterm#focus_gained()
+function! tmux_focus_events#focus_gained()
   if <SID>cursor_in_cmd_line()
     augroup focus_gained_checktime
       au!
