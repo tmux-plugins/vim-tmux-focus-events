@@ -24,7 +24,7 @@ a changed file you'll likely be interrupted with
 ![vim E813](/vim_e813.png)
 
 Improved `autoread` prevents this by automatically reading a file from disk
-if it was changed.
+if it was changed. Works only if `autoread` option is set.
 
 ### Installation & Configuration
 
