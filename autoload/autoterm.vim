@@ -1,9 +1,14 @@
-function! autoterm#cursor_in_cmd_line()
+if exists('g:autoloaded_autoterm') && g:autoloaded_autoterm
+  finish
+endif
+let g:autoloaded_autoterm = 1
+
+function! s:cursor_in_cmd_line()
   return !empty(getcmdtype())
 endfunction
 
-function! autoterm#delayed_checktime()
-  if autoterm#cursor_in_cmd_line()
+function! s:delayed_checktime()
+  if <SID>cursor_in_cmd_line()
     return
   endif
   " clearing out 'emergency' events
@@ -14,11 +19,11 @@ function! autoterm#delayed_checktime()
 endfunction
 
 function! autoterm#focus_gained()
-  if autoterm#cursor_in_cmd_line()
+  if <SID>cursor_in_cmd_line()
     augroup focus_gained_checktime
       au!
       " perform checktime ASAP when outside cmd line
-      au * * call autoterm#delayed_checktime()
+      au * * call <SID>delayed_checktime()
     augroup END
   else
     silent checktime

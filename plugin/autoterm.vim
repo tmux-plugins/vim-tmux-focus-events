@@ -62,6 +62,8 @@ function! s:restore_focus_events()
 endfunction
 
 call <SID>restore_focus_events()
+
+" restore vim 'autoread' functionality
 au FocusGained * call autoterm#focus_gained()
 
 let &cpo = s:save_cpo
