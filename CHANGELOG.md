@@ -7,3 +7,4 @@
   https://github.com/sjl/vitality.vim
 - rename plugin to 'vim-tmux-focus-events'
 - add README
+- add the list of terminals where the plugin was tested and works

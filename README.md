@@ -49,6 +49,14 @@ by setting this line in `tmux.conf`:
 
     set -g focus-events on
 
+### Testing
+
+Tested and working on:
+
+- OS X
+  - Terminal.app
+  - iTerm2
+
 ### Usage
 
 Once installed, the plugin should "just work".
