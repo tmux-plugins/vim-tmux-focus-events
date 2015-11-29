@@ -64,7 +64,7 @@ Tested and working on:
   - XTerm
   - Konsole
 
-Not working with NeoVim.
+Neovim (at least [`97cee2c`](https://github.com/neovim/neovim/commit/97cee2c2e39888b33a546ba5ffe37c510740c3a5))
 
 ### Usage
 
