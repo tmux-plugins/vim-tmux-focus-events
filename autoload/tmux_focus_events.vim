@@ -19,9 +19,6 @@ function! s:delayed_checktime()
 endfunction
 
 function! tmux_focus_events#focus_gained()
-  if !&autoread
-    return
-  endif
   if <SID>cursor_in_cmd_line()
     augroup focus_gained_checktime
       au!
