@@ -13,7 +13,7 @@ set cpo&vim
 function s:do_autocmd(event)
   let cmd = getcmdline()
   let pos = getcmdpos()
-  exec 'silent doautocmd ' . a:event . ' %'
+  exec 'silent doautocmd ' . a:event . ' <nomodeline> %'
   call setcmdpos(pos)
   return cmd
 endfunction
@@ -45,17 +45,17 @@ function! s:restore_focus_events()
   exec "set <F24>=\<Esc>[O"
   exec "set <F25>=\<Esc>[I"
 
-  nnoremap <silent> <F24> :silent doautocmd FocusLost %<CR>
-  nnoremap <silent> <F25> :doautocmd FocusGained %<CR>
+  nnoremap <silent> <F24> :silent doautocmd <nomodeline> FocusLost %<CR>
+  nnoremap <silent> <F25> :doautocmd <nomodeline> FocusGained %<CR>
 
-  onoremap <silent> <F24> <Esc>:silent doautocmd FocusLost %<CR>
-  onoremap <silent> <F25> <Esc>:silent doautocmd FocusGained %<CR>
+  onoremap <silent> <F24> <Esc>:silent doautocmd <nomodeline> FocusLost %<CR>
+  onoremap <silent> <F25> <Esc>:silent doautocmd <nomodeline> FocusGained %<CR>
 
-  vnoremap <silent> <F24> <Esc>:silent doautocmd FocusLost %<CR>gv
-  vnoremap <silent> <F25> <Esc>:silent doautocmd FocusGained %<CR>gv
+  vnoremap <silent> <F24> <Esc>:silent doautocmd <nomodeline> FocusLost %<CR>gv
+  vnoremap <silent> <F25> <Esc>:silent doautocmd <nomodeline> FocusGained %<CR>gv
 
-  inoremap <silent> <F24> <C-O>:silent doautocmd FocusLost %<CR>
-  inoremap <silent> <F25> <C-O>:silent doautocmd FocusGained %<CR>
+  inoremap <silent> <F24> <C-O>:silent doautocmd <nomodeline> FocusLost %<CR>
+  inoremap <silent> <F25> <C-O>:silent doautocmd <nomodeline> FocusGained %<CR>
 
   cnoremap <silent> <F24> <C-\>e<SID>do_autocmd('FocusLost')<CR>
   cnoremap <silent> <F25> <C-\>e<SID>do_autocmd('FocusGained')<CR>
