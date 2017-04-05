@@ -54,8 +54,8 @@ function! s:restore_focus_events()
   vnoremap <silent> <F24> <Esc>:silent doautocmd FocusLost %<CR>gv
   vnoremap <silent> <F25> <Esc>:silent doautocmd FocusGained %<CR>gv
 
-  inoremap <silent> <F24> <C-O>:silent doautocmd FocusLost %<CR>
-  inoremap <silent> <F25> <C-O>:silent doautocmd FocusGained %<CR>
+  inoremap <silent> <F24> <C-\><C-O>:silent doautocmd FocusLost %<CR>
+  inoremap <silent> <F25> <C-\><C-O>:silent doautocmd FocusGained %<CR>
 
   cnoremap <silent> <F24> <C-\>e<SID>do_autocmd('FocusLost')<CR>
   cnoremap <silent> <F25> <C-\>e<SID>do_autocmd('FocusGained')<CR>
