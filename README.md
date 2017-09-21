@@ -9,6 +9,8 @@ Here's where that matters:
   `FocusGained` for refreshing git branch in status line
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter) uses `FocusGained`
   for refreshing ... (wait for it) git gutter
+- [vim-tmux-clipboard](https://github.com/roxma/vim-tmux-focus-events) uses
+    `FocusGained` and `FocusLost` for refreshing clipboard.
 - (get in touch if you know other popular plugins that get improved)
 
 Also, `vim-tmux-focus-events` makes the
