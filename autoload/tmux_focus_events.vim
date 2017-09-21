@@ -4,7 +4,7 @@ endif
 let g:autoloaded_tmux_focus_events = 1
 
 function! s:cursor_in_cmd_line()
-  return !empty(getcmdtype())
+  return !empty(getcmdtype()) || !empty(getcmdwintype())
 endfunction
 
 function! s:delayed_checktime()
