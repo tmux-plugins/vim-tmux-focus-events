@@ -65,8 +65,9 @@ Tested and working on:
   - Terminator
   - XTerm
   - Konsole
+  - st
 
-Not working with NeoVim.
+It works both on vim and neovim.
 
 ### Usage
 
