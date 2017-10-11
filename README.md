@@ -67,6 +67,8 @@ Tested and working on:
   - Konsole
   - st
 
+It works both on vim and neovim.
+
 ### Usage
 
 Once installed, the plugin should "just work".
