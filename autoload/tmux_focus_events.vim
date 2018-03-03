@@ -3,8 +3,12 @@ if exists('g:autoloaded_tmux_focus_events') && g:autoloaded_tmux_focus_events
 endif
 let g:autoloaded_tmux_focus_events = 1
 
+let s:has_getcmdwintype = v:version > 704 || v:version == 704 && has("392")
+
 function! s:cursor_in_cmd_line()
-  return !empty(getcmdtype()) || !empty(getcmdwintype())
+  let in_cmd_line = !empty(getcmdtype())
+  let in_cmd_window = s:has_getcmdwintype && !empty(getcmdwintype())
+  return in_cmd_line || in_cmd_window
 endfunction
 
 function! s:delayed_checktime()
