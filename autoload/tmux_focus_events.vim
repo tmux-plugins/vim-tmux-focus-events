@@ -12,9 +12,6 @@ function! s:cursor_in_cmd_line()
 endfunction
 
 function! s:delayed_checktime()
-  if <SID>cursor_in_cmd_line()
-    return
-  endif
   try
     silent checktime
     " clearing out 'emergency' events, if the checktime succeeded
