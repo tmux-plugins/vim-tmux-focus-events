@@ -12,14 +12,15 @@ function! s:cursor_in_cmd_line()
 endfunction
 
 function! s:delayed_checktime()
-  if <SID>cursor_in_cmd_line()
-    return
-  endif
-  " clearing out 'emergency' events
-  augroup focus_gained_checktime
-    au!
-  augroup END
-  silent checktime
+  try
+    silent checktime
+    " clearing out 'emergency' events, if the checktime succeeded
+    augroup focus_gained_checktime
+      au!
+    augroup END
+  catch /E523/  " Not allowed here: silent checktime
+    " don't clear the augroup, let it fire again when possible
+  endtry
 endfunction
 
 function! tmux_focus_events#focus_gained()
