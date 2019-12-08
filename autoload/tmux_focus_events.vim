@@ -19,6 +19,7 @@ function! s:delayed_checktime()
       au!
     augroup END
   catch /E523/  " Not allowed here: silent checktime
+  catch /E11/   " Invalid in command-line window
     " don't clear the augroup, let it fire again when possible
   endtry
 endfunction
