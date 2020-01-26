@@ -66,7 +66,8 @@ Tested and working on:
   - XTerm
   - Konsole
   - st
-
+  - uRxvt (by a [perl-extension](https://artisan.karma-lab.net/creer-plugin-urxvt-sauvegarder-vim-automatiquement))
+ 
 It works both on vim and neovim.
 
 ### Usage
