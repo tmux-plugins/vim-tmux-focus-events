@@ -46,7 +46,7 @@ function! s:restore_focus_events()
   exec "set <F25>=\<Esc>[I"
 
   nnoremap <silent> <F24> :silent doautocmd <nomodeline> FocusLost %<CR>
-  nnoremap <silent> <F25> :doautocmd <nomodeline> FocusGained %<CR>
+  nnoremap <silent> <F25> <C-W>:doautocmd <nomodeline> FocusGained %<CR>
 
   onoremap <silent> <F24> <Esc>:silent doautocmd <nomodeline> FocusLost %<CR>
   onoremap <silent> <F25> <Esc>:silent doautocmd <nomodeline> FocusGained %<CR>
@@ -56,6 +56,11 @@ function! s:restore_focus_events()
 
   inoremap <silent> <F24> <C-\><C-O>:silent doautocmd <nomodeline> FocusLost %<CR>
   inoremap <silent> <F25> <C-\><C-O>:silent doautocmd <nomodeline> FocusGained %<CR>
+
+  if has('terminal')
+    tnoremap <silent> <F24> <C-W>:silent doautocmd FocusLost %<CR>
+    tnoremap <silent> <F25> <C-W>:silent doautocmd FocusGained %<CR>
+  endif
 
   cnoremap <silent> <F24> <C-\>e<SID>do_autocmd('FocusLost')<CR>
   cnoremap <silent> <F25> <C-\>e<SID>do_autocmd('FocusGained')<CR>
