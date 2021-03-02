@@ -24,27 +24,16 @@ function! s:delayed_checktime()
   endtry
 endfunction
 
-function! s:RetryAU(au_timer)
-  try
-    augroup focus_gained_checktime
-      au!
-      " perform checktime ASAP when outside cmd line
-      au * * call <SID>delayed_checktime()
-    augroup END
-  catch /E1155/
-    let au_timer = timer_start(50, function('s:RetryAU'))
-    " help nvim display screen
-    redraw!
-  endtry
-endfunction
-
 function! tmux_focus_events#focus_gained()
   if !&autoread
     return
   endif
   if <SID>cursor_in_cmd_line()
-    " rarely, au * * could throw E1155, retry until ok
-    call <SID>RetryAU(0)
+    augroup focus_gained_checktime
+      au!
+      " perform checktime ASAP when outside cmd line
+      au * * call <SID>delayed_checktime()
+    augroup END
   else
     silent checktime
   endif
