@@ -1,9 +1,10 @@
 # tmux-focus-events.vim
 
+**Update:** this plugin is now obsolete and no longer needed as both neovim and
+vim (since version `8.2.2345`) have native support for this functionality.
+
 `FocusGained` and `FocusLost` autocommand events are not working
 in terminal vim. This plugin restores them when using vim inside Tmux.
-
-Note: this plugin is not required for neovim.
 
 Here's where that matters:
 
